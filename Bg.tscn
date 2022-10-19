@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Bow.gd" type="Script" id=1]
+[ext_resource path="res://bg.jpg" type="Texture" id=3]
+[ext_resource path="res://bow.png" type="Texture" id=4]
+[ext_resource path="res://redtargets.png" type="Texture" id=5]
+[ext_resource path="res://Target.gd" type="Script" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 25.1261
+height = 38.1223
+
+[node name="Bg" type="Area2D"]
+position = Vector2( 512, 300 )
+scale = Vector2( 1.67157, 1.62943 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Bow" type="KinematicBody2D" parent="."]
+position = Vector2( -178.276, 2.45485 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Bow"]
+position = Vector2( -32.305, 0 )
+scale = Vector2( 0.262269, 0.393839 )
+texture = ExtResource( 4 )
+
+[node name="Target" type="KinematicBody2D" parent="."]
+position = Vector2( 159.73, -9.81938 )
+script = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Target"]
+position = Vector2( 77.1729, -16.5702 )
+scale = Vector2( 0.769383, 0.715337 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
+position = Vector2( 78.9676, -12.888 )
+shape = SubResource( 1 )
